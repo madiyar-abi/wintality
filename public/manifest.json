@@ -1,0 +1,16 @@
+{
+  "name": "Wintality — Платформа возможностей и трекер дедлайнов",
+  "short_name": "Wintality",
+  "description": "Единый навигатор олимпиад, грантов, стажировок и программ в Казахстане и мире. Умный скоринг профиля и персональный Deadline Tracker.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
