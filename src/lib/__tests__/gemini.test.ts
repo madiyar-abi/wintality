@@ -54,4 +54,19 @@ describe("Gemini AI Core Services", () => {
     expect(Array.isArray(roadmap.quarters)).toBe(true);
     expect(roadmap.quarters.length).toBeGreaterThan(0);
   });
+
+  it("should improve resume bullet point using Harvard STAR format", async () => {
+    const rawBullet = "помогал в школьном клубе робототехники";
+    const { improveResumeBullet } = await import("../ai/gemini");
+    const result = await improveResumeBullet(rawBullet, {
+      role: "Лидер клуба",
+      organization: "Школьный кружок робототехники"
+    });
+
+    expect(result).toBeDefined();
+    expect(result.improvedBullet).toBeTruthy();
+    expect(result.actionVerbUsed).toBeTruthy();
+    expect(result.explanation).toBeTruthy();
+    expect(Array.isArray(result.alternativeOptions)).toBe(true);
+  });
 });

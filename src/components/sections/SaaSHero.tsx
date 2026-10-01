@@ -12,7 +12,7 @@ import {
   Flame,
   Check
 } from "lucide-react";
-import { siteConfig, allOpportunities } from "@/config/site";
+import { allOpportunities } from "@/config/site";
 import { useLanguage } from "@/lib/i18n/context";
 
 export function SaaSHero() {
@@ -131,7 +131,12 @@ export function SaaSHero() {
 
             {/* Real Product Metrics */}
             <div className="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-zinc-200 dark:border-zinc-800/80 text-left">
-              {siteConfig.stats.map((stat, idx) => (
+              {[
+                { value: `${allOpportunities.length}+`, label: t.hero.statsPrograms },
+                { value: "8", label: t.hero.statsCategories },
+                { value: "98%", label: t.hero.statsAccuracy },
+                { value: "25+", label: t.hero.statsRegions },
+              ].map((stat, idx) => (
                 <div key={idx} className="space-y-0.5">
                   <div className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight">
                     {stat.value}

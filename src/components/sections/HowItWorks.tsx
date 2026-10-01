@@ -165,7 +165,7 @@ export function HowItWorks() {
                   <GraduationCap className="w-4 h-4" />
                 </div>
                 <span className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">
-                  База 500+ программ
+                  База 160+ программ
                 </span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">

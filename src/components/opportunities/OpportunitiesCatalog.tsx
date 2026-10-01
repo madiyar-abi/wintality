@@ -11,7 +11,6 @@ import {
   X,
   Compass,
   ArrowUpDown,
-  Flame,
   Clock,
   Sparkles
 } from "lucide-react";
@@ -38,14 +37,16 @@ export function OpportunitiesCatalog({
 
   const categories = [
     { id: "all", label: t.filters.allCategories },
-    { id: "summer_school", label: t.filters.summerSchools },
     { id: "olympiad", label: t.filters.olympiads },
-    { id: "mun", label: t.filters.mun },
+    { id: "hackathon", label: t.filters.hackathons },
+    { id: "summer_school", label: t.filters.summerSchools },
     { id: "scholarship", label: t.filters.grants },
     { id: "internship", label: t.filters.internships },
+    { id: "mun", label: t.filters.mun },
+    { id: "university", label: t.filters.universities },
   ];
 
-  const grades = ["all", 8, 9, 10, 11] as const;
+  const grades = ["all", 7, 8, 9, 10, 11, 12] as const;
 
   const filteredOpportunities = useMemo(() => {
     const list = allOpportunities.filter((item) => {
@@ -93,9 +94,7 @@ export function OpportunitiesCatalog({
     // Sorting
     return list.sort((a, b) => {
       if (sortBy === "popular") {
-        const countA = a.matchScore ? a.matchScore * 3 : 100;
-        const countB = b.matchScore ? b.matchScore * 3 : 100;
-        return countB - countA;
+        return (b.matchScore || 0) - (a.matchScore || 0);
       }
       if (sortBy === "deadline") {
         return a.daysLeft - b.daysLeft;

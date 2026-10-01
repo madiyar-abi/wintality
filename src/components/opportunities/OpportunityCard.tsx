@@ -11,7 +11,6 @@ import {
   Bookmark, 
   BookmarkCheck, 
   Sparkles, 
-  Flame, 
   ArrowRight,
   ChevronDown,
   Calendar,
@@ -21,7 +20,6 @@ interface OpportunityCardProps {
   opportunity: Opportunity;
   initialIsTracked?: boolean;
   initialStatus?: ApplicationStatus;
-  initialInterestedCount?: number;
   onOpenAiModal?: (opp: Opportunity) => void;
 }
 
@@ -29,25 +27,19 @@ export function OpportunityCard({
   opportunity,
   initialIsTracked = false,
   initialStatus = "interested",
-  initialInterestedCount,
   onOpenAiModal,
 }: OpportunityCardProps) {
   const { t, language } = useLanguage();
   const [isTracked, setIsTracked] = useState(initialIsTracked);
   const [status, setStatus] = useState<ApplicationStatus>(initialStatus);
-  const [interestedCount, setInterestedCount] = useState<number>(
-    initialInterestedCount ?? (opportunity.matchScore ? opportunity.matchScore * 2 + 35 : 148)
-  );
   const [isPending, startTransition] = useTransition();
 
   // Optimistic toggle
   const handleToggleTrack = () => {
     const nextTracked = !isTracked;
-    const nextCount = nextTracked ? interestedCount + 1 : Math.max(interestedCount - 1, 0);
 
     // Optimistic UI update immediately
     setIsTracked(nextTracked);
-    setInterestedCount(nextCount);
 
     if (nextTracked) {
       toast.success(t.card.inTracker, {
@@ -72,7 +64,6 @@ export function OpportunityCard({
       } catch {
         // Revert on error
         setIsTracked(!nextTracked);
-        setInterestedCount(interestedCount);
         toast.error("Не удалось синхронизировать с сервером");
       }
     });
@@ -180,12 +171,6 @@ export function OpportunityCard({
             {displayTitle}
           </Link>
         </h3>
-
-        {/* Live Popularity Badge */}
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-[11px] font-medium">
-          <Flame className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
-          <span>{interestedCount} {t.card.studentsTracking}</span>
-        </div>
 
         {/* Description */}
         <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">

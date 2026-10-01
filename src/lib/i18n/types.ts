@@ -24,7 +24,7 @@ export interface TranslationDictionary {
     ctaPrimary: string;
     ctaSecondary: string;
     statsPrograms: string;
-    statsStudents: string;
+    statsCategories: string;
     statsAccuracy: string;
     statsRegions: string;
   };
@@ -39,6 +39,7 @@ export interface TranslationDictionary {
     grants: string;
     internships: string;
     hackathons: string;
+    universities: string;
     allGrades: string;
     gradeLabel: string;
     deadlineLabel: string;

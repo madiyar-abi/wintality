@@ -5,7 +5,7 @@ import Link from "next/link";
 import { allOpportunities } from "@/config/site";
 import { OpportunityScope } from "@/types";
 import { useLanguage } from "@/lib/i18n/context";
-import { Clock, ArrowRight, Flame } from "lucide-react";
+import { Clock, ArrowRight } from "lucide-react";
 
 export function FeaturedOpportunities() {
   const { t, language } = useLanguage();
@@ -14,11 +14,13 @@ export function FeaturedOpportunities() {
 
   const categories = [
     { id: "all", label: t.filters.allCategories },
-    { id: "summer_school", label: t.filters.summerSchools },
     { id: "olympiad", label: t.filters.olympiads },
-    { id: "mun", label: t.filters.mun },
+    { id: "hackathon", label: t.filters.hackathons },
+    { id: "summer_school", label: t.filters.summerSchools },
     { id: "scholarship", label: t.filters.grants },
-    { id: "internship", label: t.filters.internships }
+    { id: "internship", label: t.filters.internships },
+    { id: "mun", label: t.filters.mun },
+    { id: "university", label: t.filters.universities }
   ];
 
   const filtered = allOpportunities.filter((item) => {
@@ -47,7 +49,7 @@ export function FeaturedOpportunities() {
             href="/opportunities"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors"
           >
-            <span>Смотреть все 500+ программ в каталоге</span>
+            <span>Смотреть все {allOpportunities.length}+ программ в каталоге</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -133,11 +135,6 @@ export function FeaturedOpportunities() {
                       {displayTitle}
                     </Link>
                   </h3>
-
-                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-[11px] font-medium">
-                    <Flame className="w-3 h-3 text-amber-500" />
-                    <span>{item.matchScore ? item.matchScore * 3 : 140} школьников следят</span>
-                  </div>
 
                   <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
                     {item.description}
