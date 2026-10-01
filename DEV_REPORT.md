@@ -50,12 +50,14 @@
   - Скоринг по 4 ключевым критериям: Лидерство, Критическое мышление, Академическая зрелость, Коммуникация.
   - Сильные стороны, зоны роста и рекомендации ментора по методике STAR.
 
-#### МОДУЛЬ 4: One-Click Academic CV & Portfolio Builder (Гарвардский формат)
+#### МОДУЛЬ 4: Interactive Academic CV & Portfolio Builder (Гарвардский формат)
 - **Маршрут**: `/dashboard/resume`
 - **Особенности**:
-  - Классический черно-белый гарвардский минимализм (Monochrome Ivy League style).
-  - Автоматическая агрегация данных: школа, GPA, олимпиадные победы («Дарын», IZhO, Decentrathon), внеучебные исследовательские проекты (NU Pre-College, HMUN), языковые сертификаты (IELTS).
-  - Поддержка `@media print` для чистого экспорта в PDF через `window.print()` в 1 клик.
+  - Двухпанельный современный интерфейс: слева интерактивная форма редактирования секций (контакты, образование, олимпиадные награды, опыт и проекты, навыки и языки), справа — живой предпросмотр листа формата Harvard A4 с реальным зумированием.
+  - **AI STAR Bullet Enhancer**: интеллектуальная кнопка «Улучшить пункт через AI (Harvard STAR)», которая мгновенно превращает сухие фразы в сильные глагольные метрики (Situation, Task, Action, Result).
+  - Автоматическая предзагрузка данных профиля и демонстрационного студента в 1 клик.
+  - Классический черно-белый гарвардский минимализм (Monochrome Ivy League style) со шрифтом с засечками (`font-serif`) и строгим академическим выравниванием.
+  - Идеальная поддержка `@media print` и экспорт в чистый PDF через `window.print()` в 1 клик.
 
 #### МОДУЛЬ 5: Двухсторонний экспорт дедлайнов (iCal / Google Calendar)
 - **API Роут**: `/api/calendar/export`
@@ -66,21 +68,22 @@
   - Прямой генератор ссылок в Google Календарь в один клик.
   - Кнопка скачивания `.ics` для Apple Calendar, Microsoft Outlook и мобильных устройств.
 
-#### МОДУЛЬ 6: Массивное расширение базы (104 верифицированные программы)
-- **52 программы Казахстана 🇰🇿**:
-  - Республиканская олимпиада «Дарын», Международная Жаутыковская (IZhO), олимпиада Эйлера, Менделеевская олимпиада, Сетевая олимпиада НИШ, турнир БИЛ (КТЛ), КБТУ Open, гранты AITU и МУИТ, Tech Orda (Astana Hub), nFactorial Incubator, Alem 42, Decentrathon Web3, олимпиады Аль-Фараби, программа «Мың бала» фонда «Ел Үміті», гранты фонда «Қазақстан халқына», Tinkoff Juniors, NU Pre-College Research, Академия МФЦА, KazRoboSport, Лицей Академии Яндекса и др.
-- **52 международные программы 🌍**:
-  - Harvard Secondary School Program, MIT Research Science Institute (RSI), Stanford Pre-Collegiate, Wharton Global Investment Competition, Yale Young Global Scholars (YYGS), UWC (100% гранты в 18 колледжей мира), FLEX Program, Regeneron ISEF, NASA Space Apps, FIRST Robotics, HMUN Boston, Cambridge Summer, Oxford Summer, Columbia Immersion и др.
-- Полная мультиязычность метаданных (`kz`, `ru`, `en`), реальные даты, классы, ссылки и теги.
+#### МОДУЛЬ 6: Масштабное расширение базы (161 верифицированная программа)
+- **68 программ Казахстана 🇰🇿**:
+  - Международная Жаутыковская (IZhO Алматы), Республиканская олимпиада «Дарын», олимпиада им. Джолдасбекова, олимпиада Эйлера (7-8 кл.), олимпиада Бектурова по химии, олимпиада им. Валиханова по истории, олимпиада Сатпаева по наукам о Земле, турниры КБТУ Open, хакатоны Kolesa Upgrade Junior, Kaspi Datathon, Beeline AI Marathon, Forte Digital Hack, AITU CyberHack, Jol Tap Digital, CyberShield CTF, Silkway Innovation Silicon Valley, гранты KIMEP, МУИТ, Satbayev University, NUFYP, NURIS IoT BootCamp и др.
+- **93 международные программы 🌍**:
+  - MIT RSI, HackMIT Blueprint, PennApps (UPenn), CalHacks (UC Berkeley), HackZurich, Junction Finland, Major League Hacking (MLH), Codeforces Global Rounds, AtCoder Contests, Topcoder High School, AWS DeepRacer, Microsoft Imagine Cup Junior, Google Solution Challenge, Kaggle Community AI, Harvard SSP, Yale YYGS, Stanford Summer, Columbia Immersion, UChicago, Oxbridge, Bocconi, Johns Hopkins CTY, Pratt Architecture, Berklee Music, IOI, IPhO, IChO, IBO, EGMO, HMMT, PUMaC, SMT, BMO/JBMO, FLEX, UWC, Stipendium Hungaricum, Turkiye Burslari, GKS, MEXT, CSC, DAAD, CERN Beamline for Schools, Genes in Space (NASA ISS), Red Dot Junior, Sony Photography и др.
+- **Полная прозрачность**: удалены все искусственные счетчики просмотров и искусственные метрики пользователей (10000+). Вся статистика на 100% соответствует фактической базе.
+- Полная мультиязычность метаданных (`kz`, `ru`, `en`), реальные даты, классы (7–12), ссылки и теги.
 
 #### МОДУЛЬ 7: Тестовое покрытие, SEO и Оптимизация
 - **Vitest Unit Tests**:
-  - `src/lib/__tests__/gemini.test.ts` (тест парсинга Gemini, скоринга и роадмапа).
+  - `src/lib/__tests__/gemini.test.ts` (тест парсинга Gemini, скоринга, роадмапа и STAR bullet enhancer).
   - `src/lib/__tests__/i18n.test.ts` (проверка синхронизации ключей в KZ, RU, EN словарях).
-  - `src/lib/__tests__/calendar.test.ts` (проверка 104 программ, распределения KZ/Global, валидности дней и ссылок).
-  - Результат: **100% Passing (11/11 tests green)**.
+  - `src/lib/__tests__/calendar.test.ts` (проверка 160+ программ, распределения KZ/Global, валидности дней, диапазонов классов 7-12 и ссылок).
+  - Результат: **100% Passing (12/12 tests green)**.
 - **SEO & PWA**:
-  - `src/app/sitemap.ts` (динамическая генерация карты сайта со всеми 104 программами).
+  - `src/app/sitemap.ts` (динамическая генерация карты сайта со всеми программами).
   - `src/app/robots.ts`.
   - `src/app/api/og/route.tsx` (динамическая генерация OpenGraph изображений через `ImageResponse`).
   - Микроразметка `Schema.org` (JSON-LD `EducationalOccupationalCredential`) на детальных страницах.
